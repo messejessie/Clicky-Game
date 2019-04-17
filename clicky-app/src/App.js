@@ -10,10 +10,13 @@ class App extends Component {
         character,
         characterClicked: character,
         score: 0,
-    
-    };
 
-    clickCharacter = (id, click) => {
+    }
+    // reset() {
+    //     this.setState(characterClicked);
+    // };
+
+    clickCharacter  = (id, click) => {
         //clicking on a character 
         const characterClicked = this.state.characterClicked.filter(
             characterClicked => characterClicked.id !== id
@@ -28,19 +31,26 @@ class App extends Component {
 
     scoreCard = click => {
         //let score = 0
-        if(this.state.characterClicked.includes(click)){
+        if (this.state.characterClicked.includes(click)) {
             //logic to clear right  now
-                this.setState({score: this.state.score +1 });
-                //alert("Yay you got a point!")
+            this.setState({ score: this.state.score + 1 });
+            //alert("Yay you got a point!")
 
 
-        }else{
-            
-            this.setState({ score: 0 }) 
+        } else {
+
+            //clearCharacter(characterClicked);
+            this.setState({ score: 0 })
             //alert("You lose!")
-        } 
+        }
 
     };
+
+    // reset() {
+    //     this.state = characterClicked;
+    //     this.setState(characterClicked);
+    // }
+
 
     shuffleCharacters = (characterClicked) => {
         for (let i = characterClicked.length - 1; i > 0; i--) {
@@ -50,8 +60,8 @@ class App extends Component {
     };
 
     render() {
-//console.log(this.state.characterClicked)
-console.log(this.state.score);
+        //console.log(this.state.characterClicked)
+        console.log(this.state.score);
         return (
             <Wrapper>
                 <Title> Clicky Game - Click on an Image to Begin - Score: {this.state.score}</Title>
