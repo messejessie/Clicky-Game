@@ -9,13 +9,13 @@
     text-align: left;
   }
   
-  .card > .img-container {
+  .card > .img-thumbnail {
     height: 60%;
     overflow: hidden;
     text-align: center;
     background:#6CADDC;
   }
-  .card > .img-container > img {
+  .card > .img-thumbnail > img {
     width: 60%
   }
   
