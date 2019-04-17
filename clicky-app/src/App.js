@@ -12,6 +12,8 @@ class App extends Component {
         score: 0,
 
     }
+    
+ 
     // reset() {
     //     this.setState(characterClicked);
     // };
@@ -41,15 +43,11 @@ class App extends Component {
 
             //clearCharacter(characterClicked);
             this.setState({ score: 0 })
+            // empty(characterClicked)
             //alert("You lose!")
+            this.setState({ characterClicked: character}) 
         }
-
     };
-
-    // reset() {
-    //     this.state = characterClicked;
-    //     this.setState(characterClicked);
-    // }
 
 
     shuffleCharacters = (characterClicked) => {
