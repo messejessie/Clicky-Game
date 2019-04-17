@@ -9,7 +9,8 @@ class App extends Component {
     state = {
         character,
         characterClicked: character,
-        score: 0
+        score: 0,
+    
     };
 
     clickCharacter = (id, click) => {
@@ -22,6 +23,7 @@ class App extends Component {
         console.log(characterClicked + "clicked");
         this.scoreCard(click);
         //shuffle
+        this.shuffleCharacters(character)
     };
 
     scoreCard = click => {
@@ -29,15 +31,22 @@ class App extends Component {
         if(this.state.characterClicked.includes(click)){
             //logic to clear right  now
                 this.setState({score: this.state.score +1 });
-                alert("Yay you got a point!")
+                //alert("Yay you got a point!")
 
 
         }else{
             
-            this.setState({ score: 0 })
-            alert("You lose!")
-        }
+            this.setState({ score: 0 }) 
+            //alert("You lose!")
+        } 
 
+    };
+
+    shuffleCharacters = (characterClicked) => {
+        for (let i = characterClicked.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [characterClicked[i], characterClicked[j]] = [characterClicked[j], characterClicked[i]];
+        }
     };
 
     render() {
